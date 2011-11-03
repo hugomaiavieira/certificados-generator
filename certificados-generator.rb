@@ -35,6 +35,7 @@ require 'spreadsheet'
 PATH = File.expand_path(File.dirname(__FILE__))
 DATA = File.join(PATH, 'dados.xls')
 MODEL = File.join(PATH, 'modelo.odt')
+FILE = File.join(PATH, 'arquivos/certificados.odt')
 
 Spreadsheet.client_encoding = 'UTF-8'
 
@@ -49,5 +50,5 @@ report = ODFReport::Report.new(MODEL) do |r|
   end
 end
 
-report.generate("./arquivos/certificados.odt")
+report.generate(FILE)
 
