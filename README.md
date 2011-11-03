@@ -1,4 +1,4 @@
-# Certificado Generator
+# Certificados Generator
 
 Script para gerar certificados baseados em um modelo odt (LibreOffice Writer)
 pegando os dados de um arquivo xls (Excel).
