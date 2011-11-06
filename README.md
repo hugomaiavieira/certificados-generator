@@ -1,7 +1,24 @@
-# Certificado Generator
+# Certificados Generator
 
 Script para gerar certificados baseados em um modelo odt (LibreOffice Writer)
 pegando os dados de um arquivo xls (Excel).
+
+# Instalação
+
+Vá em downloads e clique em "Download as tar.gz". Extraia a pasta um diretório
+qualquer e, se quiser, renomeie a pasta para certificados-generator. Por
+exemplo, eu extrai para `/home/hugo/Documentos` e renomeie.
+
+Em seguida, abra o Terminal e digite os comandos:
+
+    $ sudo apt-get install ruby rubygems
+    $ sudo apt-get install libxslt-dev libxml2-dev
+    $ cd ~/Documentos/certificados-generator
+    $ gem install bundler --no-rdoc --no-ri
+    $ bundle install
+
+
+# Utilização
 
 O arquivo modelo.odt deve ter uma seção¹ chamada CERIFICADOS. Dentro desta
 seção, devem ser inseridas as variáveis - por exemplo [PALESTRANTE], [PALESTRA],
@@ -12,11 +29,28 @@ colunas do arquivo dados.xls.
 O nome da seção e das variáveis devem estar em letras MAIÚSCULAS, sendo que as
 variáveis devem estar ente [COLCHETES].
 
-    Exemplo de uso:
+Para abrir o terminal para executar o script, vá na pasta onde foi extraído,
+clique duas vezes no arquivo `executar` e depois pressione "Executar".
+
+    Exemplo de uso (não se esqueça do `./` no início da chamada):
 
         $ ./certificados-generator palestrante palestra dia
 
 ¹ Para adicionar uma seção, vá no menu Inserir -> Seção.
+
+# Instalação
+
+Vá em downloads e clique em "Download as tar.gz". Extraia a pasta um diretório
+qualquer e, se quiser, renomeie a pasta para certificados-generator. Por
+exemplo, eu extrai para `/home/hugo/Documentos` e renomeie.
+
+Em seguida, abra o Terminal e digite os comandos:
+
+    $ sudo apt-get install ruby rubygems
+    $ sudo apt-get install libxslt-dev libxml2-dev
+    $ cd ~/Documentos/certificados-generator
+    $ gem install bundler --no-rdoc --no-ri
+    $ bundle install
 
 # Licença
 
