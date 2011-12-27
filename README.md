@@ -32,9 +32,9 @@ variáveis devem estar ente [COLCHETES].
 Para abrir o terminal para executar o script, vá na pasta onde foi extraído,
 clique duas vezes no arquivo `executar` e depois pressione "Executar".
 
-    Exemplo de uso (não se esqueça do `./` no início da chamada):
+Exemplo de uso (não se esqueça do `./` no início da chamada):
 
-        $ ./certificados-generator palestrante palestra dia
+    $ ./certificados-generator palestrante palestra dia
 
 ¹ Para adicionar uma seção, vá no menu Inserir -> Seção.
 
