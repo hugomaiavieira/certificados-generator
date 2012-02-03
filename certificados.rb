@@ -4,6 +4,10 @@ get '/' do
   erb :index
 end
 
+post '/' do
+  params
+end
+
 get '/modelo-exemplo.odt' do
   send_file 'public/exemplos/modelo.odt'
 end
