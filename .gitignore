@@ -1,6 +1,5 @@
-dados.xls
-modelo.odt
 .rvmrc
-arquivos/*
-!arquivos/.gitkeep
-.~*
+puclic/output/*
+!puclic/output/.gitkeep
+puclic/uploads/*
+!puclic/uploads/.gitkeep

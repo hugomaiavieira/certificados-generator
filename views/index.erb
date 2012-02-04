@@ -44,9 +44,9 @@
         <div class="span8">
           <h2>Gerar certificado</h2>
 
-          <form class='form-horizontal' action='/' method='POST'>
+          <form class='form-horizontal' action='/' method='POST' enctype='multipart/form-data'>
             <div class='control-group'>
-              <label for='variaveis'>Variáveis</label>
+              <label class='control-label' for='variaveis'>Variáveis</label>
               <div class='controls'>
                 <input type='text' name='variaveis'>
                 <p class='help-block'>Digite as variáveis separadas por espaço</p>
@@ -54,7 +54,7 @@
             </div>
 
             <div class='control-group'>
-              <label for='modelo'>Modelo</label>
+              <label class='control-label' for='modelo'>Modelo</label>
               <div class='controls'>
                 <input type='file' name='modelo'>
                 <p class='help-block'>Arquivo modelo do certificado (.odt)</p>
@@ -62,10 +62,18 @@
             </div>
 
             <div class='control-group'>
-              <label for='dados'>Dados</label>
+              <label class='control-label' for='dados'>Dados</label>
               <div class='controls'>
                 <input type='file' name='dados'>
                 <p class='help-block'>Arquivo da tabela com os dados (.xls)</p>
+              </div>
+            </div>
+
+            <div class='control-group'>
+              <label class='control-label' for='nome'>Nome</label>
+              <div class='controls'>
+                <input type='text' name='nome'>
+                <p class='help-block'>Nome do arquivo que será gerado (.odt)</p>
               </div>
             </div>
 
