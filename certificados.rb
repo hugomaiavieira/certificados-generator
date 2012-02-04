@@ -36,6 +36,10 @@ get '/' do
   erb :index
 end
 
+get '/ajuda' do
+  erb :ajuda
+end
+
 post '/' do
   vars = params[:variaveis].split
   name = params[:nome].empty? ? 'certificados' : params[:nome]

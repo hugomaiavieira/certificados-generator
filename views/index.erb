@@ -1,94 +1,40 @@
-<html>
-  <head>
-    <title>Gerador de Certificados</title>
-
-    <link rel="stylesheet" href="css/bootstrap.css">
-
-    <style type="text/css">
-      body {
-        padding-top: 30px;
-        padding-bottom: 40px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
-
-      .title > h1{
-        font-size: 50px;
-        margin-bottom: 40px;
-      }
-      h2 {
-        margin-bottom: 15px;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div class="container-fluid">
-      <div class="row-fluid title">
-        <h1>Gerador de certificados</h1>
+<form class='form-horizontal' action='/' method='POST' enctype='multipart/form-data'>
+  <fieldset>
+    <legend>Gerar certificado</legend>
+    <div class='control-group'>
+      <label class='control-label' for='variaveis'>Variáveis</label>
+      <div class='controls'>
+        <input type='text' name='variaveis'>
+        <p class='help-block'>Digite as variáveis separadas por espaço</p>
       </div>
-      <div class="row-fluid">
-        <div class="span3">
-          <h2>Ajuda</h2>
-          <ul>
-            <li><a href="<%= url('/modelo-exemplo.odt') %>">Exemplo de modelo</a></li>
-            <li><a href="<%= url('/dados-exemplo.xls') %>">Exemplo de dados</a></li>
-          </ul>
-          <p>
-            Escrever aqui o texto de ajuda. Escrever aqui o texto de ajuda.
-            Escrever aqui o texto de ajuda. Escrever aqui o texto de ajuda.
-          </p>
-        </div>
-
-        <div class="span8">
-          <h2>Gerar certificado</h2>
-
-          <form class='form-horizontal' action='/' method='POST' enctype='multipart/form-data'>
-            <div class='control-group'>
-              <label class='control-label' for='variaveis'>Variáveis</label>
-              <div class='controls'>
-                <input type='text' name='variaveis'>
-                <p class='help-block'>Digite as variáveis separadas por espaço</p>
-              </div>
-            </div>
-
-            <div class='control-group'>
-              <label class='control-label' for='modelo'>Modelo</label>
-              <div class='controls'>
-                <input type='file' name='modelo'>
-                <p class='help-block'>Arquivo modelo do certificado (.odt)</p>
-              </div>
-            </div>
-
-            <div class='control-group'>
-              <label class='control-label' for='dados'>Dados</label>
-              <div class='controls'>
-                <input type='file' name='dados'>
-                <p class='help-block'>Arquivo da tabela com os dados (.xls)</p>
-              </div>
-            </div>
-
-            <div class='control-group'>
-              <label class='control-label' for='nome'>Nome</label>
-              <div class='controls'>
-                <input type='text' name='nome'>
-                <p class='help-block'>Nome do arquivo que será gerado (.odt)</p>
-              </div>
-            </div>
-
-            <div class='form-actions'>
-              <button type='submit' class='btn btn-large btn-primary'>Enviar</button>
-            </div>
-          </form>
-
-        </div>
-      </div>
-
-      <hr>
-      <footer>
-        <p>&copy; <a href="http://hugomaiavieira.com">Hugo Maia Vieira</a> 2012</p>
-      <footer>
     </div>
-  </body>
-</html>
+
+    <div class='control-group'>
+      <label class='control-label' for='modelo'>Modelo</label>
+      <div class='controls'>
+        <input type='file' name='modelo'>
+        <p class='help-block'>Arquivo modelo do certificado (.odt)</p>
+      </div>
+    </div>
+
+    <div class='control-group'>
+      <label class='control-label' for='dados'>Dados</label>
+      <div class='controls'>
+        <input type='file' name='dados'>
+        <p class='help-block'>Arquivo da tabela com os dados (.xls)</p>
+      </div>
+    </div>
+
+    <div class='control-group'>
+      <label class='control-label' for='nome'>Nome</label>
+      <div class='controls'>
+        <input type='text' name='nome'>
+        <p class='help-block'>Nome do arquivo que será gerado (.odt)</p>
+      </div>
+    </div>
+
+    <div class='form-actions'>
+      <button type='submit' class='btn btn-large btn-primary'>Enviar</button>
+    </div>
+  </fieldset>
+</form>
