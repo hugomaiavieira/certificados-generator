@@ -3,11 +3,11 @@
 Uma aplicação web para gerar certificados baseados em um modelo *odt* (texto do
 [LibreOffice][1]) pegando os dados de um arquivo *xls* (Tabela do Excel).
 
-Acesse a aplicação: http://certificado.herokuapp.com/
+Acesse a aplicação: http://certificado.heroku.com/
 
 ## Utilização
 
-http://certificado.herokuapp.com/ajuda
+http://certificado.heroku.com/ajuda
 
 ## Licença
 
