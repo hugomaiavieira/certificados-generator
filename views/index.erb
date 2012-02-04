@@ -1,13 +1,6 @@
 <form class='form-horizontal' action='/' method='POST' enctype='multipart/form-data'>
   <fieldset>
     <legend>Gerar certificado</legend>
-    <div class='control-group'>
-      <label class='control-label' for='variaveis'>Variáveis</label>
-      <div class='controls'>
-        <input type='text' name='variaveis' class="span4">
-        <p class='help-block'>Digite as variáveis separadas por espaço</p>
-      </div>
-    </div>
 
     <div class='control-group'>
       <label class='control-label' for='modelo'>Modelo</label>
@@ -26,10 +19,18 @@
     </div>
 
     <div class='control-group'>
+      <label class='control-label' for='variaveis'>Variáveis</label>
+      <div class='controls'>
+        <input type='text' name='variaveis' class="span4">
+        <p class='help-block'>Digite as variáveis separadas por espaço</p>
+      </div>
+    </div>
+
+    <div class='control-group'>
       <label class='control-label' for='nome'>Nome</label>
       <div class='controls'>
         <input type='text' name='nome'>
-        <p class='help-block'>Nome do arquivo que será gerado (.odt)</p>
+        <p class='help-block'>Nome do arquivo que será gerado com todos os certificados</p>
       </div>
     </div>
 

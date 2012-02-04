@@ -1,11 +1,46 @@
 <h2>Ajuda</h2>
-<p>
-  Escrever aqui o texto de ajuda. Escrever aqui o texto de ajuda.
-</p>
-<ul>
-  <li><a href="<%= url('/modelo-exemplo.odt') %>">Exemplo de modelo</a></li>
-  <li><a href="<%= url('/dados-exemplo.xls') %>">Exemplo de dados</a></li>
-</ul>
-<p>
-  Escrever aqui o texto de ajuda. Escrever aqui o texto de ajuda.
-</p>
+
+<p>Após o preenchimento e envio do formulário, um arquivo <em>odt</em> (texto do
+<a href="http://www.libreoffice.org">LibreOffice</a>) contendo todos os
+certificados gerados será enviado para que você faça o download.</p>
+
+<h3>Preenchendo o formulário</h3>
+
+<dl>
+  <dt>Variáveis</dt>
+
+  <dd>As variáveis são os dados que variam no modelo. Supondo que em seu
+certificado os dados que variam sejam o nome do participante e a palestra da
+qual ele participou, as variáveis serão <strong>participante</strong> e
+<strong>palestra</strong>. As variáveis devem estar <strong>separadas por
+espaço</strong> e a ordem deve seguir a ordem das colunas do arquivo fornecido
+no item Dados.</dd>
+
+  <dt>Modelo</dt>
+
+  <dd>Este é um arquivo <em>odt</em> (texto do
+<a href="http://www.libreoffice.org">LibreOffice</a>) e servirá como modelo para
+a geração dos certificados. Ele deve ter uma seção<sup>1</sup> chamada
+CERIFICADOS. Dentro desta seção, devem ser inseridas as variáveis - por exemplo
+[PARTICIPANTE], [PALESTRA]<sup>2</sup>. Veja um
+<a href="<%= url('/modelo- exemplo.odt') %>">exemplo de modelo</a>.</dd>
+
+  <dt>Dados</dt>
+
+  <dd>Este é um arquivo <em>xls</em> (tabela do Excel) e irá conter os dados que
+serão substituídos no lugar das variáveis. Cada coluna representa uma uma
+variável e cada linha representa os dados de um certificado a ser gerado. Veja
+um <a href="<%= url('/dados-exemplo.xls') %>">exemplo de dados</a>.</dd>
+
+  <dt>Nome</dt>
+
+  <dd>Este será o nome do arquivo <em>odt</em> gerado com todos os certificados.
+Caso não seja dado nenhum nome, o nome do arquivo será <em>certificados</em>.
+</dd>
+
+</dl>
+
+<p><sup>1</sup> Para adicionar uma seção, vá no menu Inserir -> Seção.
+<br>
+<sup>2</sup> O nome da seção e das variáveis devem estar em letras MAIÚSCULAS, sendo que
+as variáveis devem estar ente [COLCHETES].</p>
