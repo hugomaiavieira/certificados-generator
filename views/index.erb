@@ -1,9 +1,17 @@
+<% if !@errors.empty? %>
+<div class="alert alert-error">
+  <% @errors.each do |error| %>
+    <%= error %><br>
+  <% end %>
+</div>
+<% end %>
+
 <form class='form-horizontal' action='/' method='POST' enctype='multipart/form-data'>
   <fieldset>
     <legend>Gerar certificado</legend>
 
     <div class='control-group'>
-      <label class='control-label' for='modelo'>Modelo</label>
+      <label class='control-label' for='modelo'>* Modelo</label>
       <div class='controls'>
         <input type='file' name='modelo'>
         <p class='help-block'>Arquivo modelo do certificado (.odt)</p>
@@ -11,7 +19,7 @@
     </div>
 
     <div class='control-group'>
-      <label class='control-label' for='dados'>Dados</label>
+      <label class='control-label' for='dados'>* Dados</label>
       <div class='controls'>
         <input type='file' name='dados'>
         <p class='help-block'>Arquivo da tabela com os dados (.xls)</p>
@@ -19,7 +27,7 @@
     </div>
 
     <div class='control-group'>
-      <label class='control-label' for='variaveis'>Variáveis</label>
+      <label class='control-label' for='variaveis'>* Variáveis</label>
       <div class='controls'>
         <input type='text' name='variaveis' class="span4">
         <p class='help-block'>Digite as variáveis separadas por espaço</p>
@@ -30,7 +38,10 @@
       <label class='control-label' for='nome'>Nome</label>
       <div class='controls'>
         <input type='text' name='nome'>
-        <p class='help-block'>Nome do arquivo que será gerado com todos os certificados</p>
+        <p class='help-block'>
+          Nome do arquivo que será gerado com todos os certificados<br/>
+          Caso não seja preenchido, o padrão será <strong>certificados</strong>
+        </p>
       </div>
     </div>
 

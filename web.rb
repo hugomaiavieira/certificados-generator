@@ -33,6 +33,7 @@ require 'spreadsheet'
 UPLOAD_PATH = 'public/uploads'
 
 get '/' do
+  @errors = []
   erb :index
 end
 
@@ -41,13 +42,19 @@ get '/ajuda' do
 end
 
 post '/' do
-  vars = params[:variaveis].split
-  name = params[:nome].empty? ? 'certificados' : params[:nome]
-  model = upload(params[:modelo], 'modelo.odt')
-  data = upload(params[:dados], 'dados.xls')
+  @errors = []
+  validate(params)
+  if @errors.empty?
+    vars = params[:variaveis].split
+    name = params[:nome].empty? ? 'certificados' : params[:nome]
+    model = upload(params[:modelo], 'modelo.odt')
+    data = upload(params[:dados], 'dados.xls')
 
-  file = generate(vars, model, data)
-  send_file file, :filename => "#{name}.odt"
+    file = generate(vars, model, data)
+    send_file file, :filename => "#{name}.odt"
+  else
+    erb :index
+  end
 end
 
 get '/modelo-exemplo.odt' do
@@ -56,6 +63,22 @@ end
 
 get '/dados-exemplo.xls' do
   send_file 'public/exemplos/dados.xls'
+end
+
+def validate params
+  if params[:modelo]
+    @errors << 'O item Modelo tem que ser um arquivo odt' if not params[:modelo][:type] =~ /opendocument.text/
+  else
+    @errors << 'O item Modelo não pode ser vazio'
+  end
+
+  if params[:dados]
+    @errors << 'O item Dados tem que ser um arquivo xls' if not params[:dados][:type] =~ /ms-excel/
+  else
+    @errors << 'O item Dados não pode ser vazio'
+  end
+
+  @errors << 'O item Variáveis não pode ser vazio' if params[:variaveis] and params[:variaveis].empty?
 end
 
 def upload multipart, filename
