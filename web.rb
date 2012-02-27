@@ -29,6 +29,7 @@
 require 'sinatra'
 require 'odf-report'
 require 'spreadsheet'
+require 'ods'
 
 UPLOAD_PATH = 'public/uploads'
 
@@ -48,7 +49,9 @@ post '/' do
     vars = params[:variaveis].split
     name = params[:nome].empty? ? 'certificados' : params[:nome]
     model = upload(params[:modelo], 'modelo.odt')
-    data = upload(params[:dados], 'dados.xls')
+
+    data_mime = params[:dados][:type] =~ /ms-excel/ ? 'xls' : 'ods'
+    data = upload(params[:dados], "dados.#{data_mime}")
 
     file = generate(vars, model, data)
     send_file file, :filename => "#{name}.odt"
@@ -73,7 +76,7 @@ def validate params
   end
 
   if params[:dados]
-    @errors << 'O item Dados tem que ser um arquivo xls' if not params[:dados][:type] =~ /ms-excel/
+    @errors << 'O item Dados tem que ser um arquivo xls ou ods' if not params[:dados][:type] =~ /ms-excel|opendocument.spreadsheet/
   else
     @errors << 'O item Dados não pode ser vazio'
   end
@@ -96,8 +99,7 @@ def generate(vars, model, data)
 
   Spreadsheet.client_encoding = 'UTF-8'
 
-  table = Spreadsheet.open(data).worksheets[0]
-  rows = []; table.each { |row| rows << row }
+  rows = data_rows(data)
 
   report = ODFReport::Report.new(model) do |r|
     r.add_section('CERTIFICADOS', rows) do |s|
@@ -109,4 +111,24 @@ def generate(vars, model, data)
 
   report.generate(file)
   return file
+end
+
+def data_rows(data_path)
+  puts data_path
+  if data_path.end_with? '.xls'
+    Spreadsheet.client_encoding = 'UTF-8'
+    table = Spreadsheet.open(data_path).worksheets[0]
+    rows = []; table.each { |row| rows << row }
+    return rows
+  else
+    ods = Ods.new(data_path)
+    sheet = ods.sheets[0]
+    _rows = []
+    sheet.rows.each do |row|
+      _row = []
+      row.cols.each { |cell| _row << cell.value }
+      _rows << _row
+    end
+    return _rows
+  end
 end
