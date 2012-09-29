@@ -1,5 +1,5 @@
 .rvmrc
-puclic/output/*
-!puclic/output/.gitkeep
-puclic/uploads/*
-!puclic/uploads/.gitkeep
+public/output/*
+!public/output/.gitkeep
+public/uploads/*
+#!public/uploads/.gitkeep
