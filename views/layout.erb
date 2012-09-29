@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
   <head>
     <title>Gerador de Certificados</title>
 
@@ -11,7 +12,7 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <!-- Facebook tags -->
     <meta property="og:title" content="Gerador de certificados" />
@@ -21,6 +22,11 @@
     <style type="text/css">
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+
+      img.logo {
+        float:left;
+        margin-right: 10px;
       }
 
       footer {
@@ -34,27 +40,25 @@
       h3 {
         border-bottom: 1px solid #EEE;
       }
-      input {
-        padding: 13px 4px;
-      }
+
       sup {
         font-weight: bold;
         color: red;
-      }
-      img.logo {
-        float:left;
-        margin-right: 10px;
       }
     </style>
   </head>
 
   <body>
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
           <img class="logo" width="40" height="40" src="img/certificate.png" alt="Logo" />
           <a class="brand" href="/">Gerador de certificados</a>
-          <div class="nav-collapse">
+          <div class="nav-collapse collapse">
             <ul class="nav">
               <li><a href="/">Principal</a></li>
               <li><a href="<%= url('ajuda') %>">Ajuda</a></li>
@@ -63,7 +67,6 @@
         </div>
       </div>
     </div>
-
 
     <div class="container">
       <%= yield %>
