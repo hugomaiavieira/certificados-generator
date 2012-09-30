@@ -1,7 +1,8 @@
 # Certificados generator
 
 Uma aplicação web para gerar certificados baseados em um modelo *odt* (texto do
-[LibreOffice][1]) pegando os dados de um arquivo *xls* (Tabela do Excel).
+[LibreOffice][1]) pegando os dados de um arquivo *ods* (tabela do
+[LibreOffice][1]) ou *xls* (Tabela do Excel).
 
 Acesse a aplicação: http://certificado.heroku.com/
 
