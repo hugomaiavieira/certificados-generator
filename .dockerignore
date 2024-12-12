@@ -1,0 +1,7 @@
+# flyctl launch added from .gitignore
+**/.rvmrc
+**/public/output/*
+!**/public/output/.gitkeep
+**/public/uploads/*
+#!public/uploads/.gitkeep
+fly.toml
